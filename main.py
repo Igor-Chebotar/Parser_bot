@@ -4,7 +4,9 @@ from pars_file import parser_main, create_connection, DATABASE_PATH
 
 
 def start(update, context):
-    update.message.reply_text('')
+    update.message.reply_text(
+        'Здравствуйте, введите название города и я выведу его население и ссылку на старницу в википедии\n'
+        'Для более подробной информации воспользуйтесть командой /help')
 
 
 def help(update, context):
@@ -30,7 +32,8 @@ def text(update, context):
                                   )
     else:
         res1 = cursor.execute("SELECT * FROM City WHERE name LIKE ?", ('%' + text_received + '%',)).fetchall()
-        res2 = cursor.execute("SELECT * FROM City WHERE name LIKE ?", ('%' + text_received.capitalize() + '%',)).fetchall()
+        res2 = cursor.execute("SELECT * FROM City WHERE name LIKE ?",
+                              ('%' + text_received.capitalize() + '%',)).fetchall()
         is_printed = []
         answer = 'Возможно Вы имели ввиду один из этих городов:\n'
         for el in res1 + res2:
