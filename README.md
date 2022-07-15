@@ -1,4 +1,5 @@
 # Parser_bot
+Имя бота в тг: https://t.me/my_parser_alef_bot
 
 Стек:
 
